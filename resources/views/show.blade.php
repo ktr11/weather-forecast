@@ -28,15 +28,7 @@
 
 <body>
     <h1>Weather Forecast</h1>
-    <form method="post" action="{{ url('/weather/show') }}">
-        {{ csrf_field() }}
-        <select name="prefecture">
-            <option value="">please select</option>
-            <option value="2130037">Hokkaidō</option>
-            <option value="1850147">Tokyo</option>
-        </select>
-        <input type="submit" value="送信">
-    </form>
+    {{ $result }}
 </body>
 
 </html>

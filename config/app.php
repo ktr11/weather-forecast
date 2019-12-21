@@ -228,4 +228,8 @@ return [
 
     ],
 
+    # OpenWeather
+    'ow_url' => env('OW_URL'),
+    'ow_api_key'  => env('OW_API_KEY'),
+
 ];
