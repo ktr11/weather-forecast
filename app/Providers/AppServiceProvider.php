@@ -13,6 +13,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        # migration時の長さのエラーに対応
+        Schema::defaultStringLength(191);
         # 本番環境はhhtps
         if (\App::environment('production')) {
             \URL::forceScheme('https');
