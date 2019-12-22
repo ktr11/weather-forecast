@@ -71,5 +71,9 @@
             <input type="submit" class="btn btn-default" value="send">
         </div>
     </div>
+    <div id="app">
+        <weather-component></weather-component>
+    </div>
+    <script src="{{ mix('js/app.js') }}"></script>
 </form>
 @endsection
