@@ -9,7 +9,7 @@ class ApiUtil
     /**
      * OpenWeatherのAPIを叩いて天気を取得
      */
-    public static function getWeatherData($id)
+    public static function getWeatherData($area_id)
     {
         $client = new Client();
         $res = $client->request(
@@ -17,7 +17,7 @@ class ApiUtil
             config('app.ow_url'),
             [
                 'query' => [
-                    'id' => $id,
+                    'id' => $area_id,
                     'appid' => config('app.ow_api_key'),
                     'units' => 'metric'
                 ]
