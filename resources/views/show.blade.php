@@ -7,22 +7,22 @@
         </colgroup>
         <tr>
             <th>date</th>
-            <td>{{ date('Y/m/d') }}</td>
+            <td class="font_bold">{{ date('Y/m/d') }}</td>
         </tr>
         <tr>
             <th>name</th>
-            <td>{{ $record->name }}</td>
+            <td class="font_bold">{{ $record->name }}</td>
         </tr>
         <tr>
             <td colspan="2"><img src="{{ url('img/icon') . '/' .  $record->icon . '.png' }}"></td>
         </tr>
         <tr>
             <th>max&nbsp;temp</th>
-            <td>{{ $record->max_temp }}</td>
+            <td class="font_bold">{{ $record->max_temp }}</td>
         </tr>
         <tr>
             <th>min&nbsp;temp</th>
-            <td>{{ $record->min_temp }}</td>
+            <td class="font_bold">{{ $record->min_temp }}</td>
         </tr>
     </table>
     <a class="btn btn-default" href="{{ url('/') }}">back</a>
