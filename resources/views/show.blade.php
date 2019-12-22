@@ -25,4 +25,5 @@
             <td>{{ $record->min_temp }}</td>
         </tr>
     </table>
+    <a class="btn btn-default" href="{{ url('/') }}">back</a>
 @endsection
