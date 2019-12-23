@@ -1,9 +1,9 @@
 <template>
   <div>
     <div class="col-sm-offset-1 col-sm-10">
-      <button type="button" v-on:click="showWeather" class="btn btn-default">send</button>
+      <button type="button" @click="showWeather" class="btn btn-default">send</button>
     </div>
-    <div v-if="record == null">
+    <div>
       <table class="table">
         <colgroup>
           <col width="30%" />
@@ -11,15 +11,16 @@
         </colgroup>
         <tr>
           <th>date</th>
-          <th>{{ record.date }}</th>
+          <th>{{ record.forecast_date }}</th>
         </tr>
         <tr>
           <th>name</th>
           <th>{{ record.name }}</th>
         </tr>
         <tr>
-          <th colspan="2">
-            <img v-bind:src="'./img/icon' + record.icon + '.png'" />
+          <th>weather</th>
+          <th>
+            <img v-bind:src="'./img/icon/' + record.icon + '.png'" alt=""/>
           </th>
         </tr>
         <tr>
@@ -37,17 +38,18 @@
 
 <script>
 export default {
-  data() {
+  name: 'record',
+  data: function() {
     return {
-      record:[]
-    }
+      record: {}
+    };
   },
   methods: {
     showWeather() {
+      let self = this;
       var area = document.getElementById("area").value;
       axios.post("/api/weather/" + area).then(function(res) {
-        alert(res.data.icon);
-        this.record = res.data;
+        self.record = res.data;
       });
     }
   }

@@ -44799,20 +44799,21 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'record',
   data: function data() {
     return {
-      record: []
+      record: {}
     };
   },
-
   methods: {
     showWeather: function showWeather() {
+      var self = this;
       var area = document.getElementById("area").value;
       axios.post("/api/weather/" + area).then(function (res) {
-        alert(res.data.icon);
-        this.record = res.data;
+        self.record = res.data;
       });
     }
   }
@@ -44839,45 +44840,45 @@ var render = function() {
       )
     ]),
     _vm._v(" "),
-    _vm.record == null
-      ? _c("div", [
-          _c("table", { staticClass: "table" }, [
-            _vm._m(0),
-            _vm._v(" "),
-            _c("tr", [
-              _c("th", [_vm._v("date")]),
-              _vm._v(" "),
-              _c("th", [_vm._v(_vm._s(_vm.record.date))])
-            ]),
-            _vm._v(" "),
-            _c("tr", [
-              _c("th", [_vm._v("name")]),
-              _vm._v(" "),
-              _c("th", [_vm._v(_vm._s(_vm.record.name))])
-            ]),
-            _vm._v(" "),
-            _c("tr", [
-              _c("th", { attrs: { colspan: "2" } }, [
-                _c("img", {
-                  attrs: { src: "./img/icon" + _vm.record.icon + ".png" }
-                })
-              ])
-            ]),
-            _vm._v(" "),
-            _c("tr", [
-              _c("th", [_vm._v("max temp")]),
-              _vm._v(" "),
-              _c("th", [_vm._v(_vm._s(_vm.record.max_temp))])
-            ]),
-            _vm._v(" "),
-            _c("tr", [
-              _c("th", [_vm._v("min temp")]),
-              _vm._v(" "),
-              _c("th", [_vm._v(_vm._s(_vm.record.min_temp))])
-            ])
+    _c("div", [
+      _c("table", { staticClass: "table" }, [
+        _vm._m(0),
+        _vm._v(" "),
+        _c("tr", [
+          _c("th", [_vm._v("date")]),
+          _vm._v(" "),
+          _c("th", [_vm._v(_vm._s(_vm.record.forecast_date))])
+        ]),
+        _vm._v(" "),
+        _c("tr", [
+          _c("th", [_vm._v("name")]),
+          _vm._v(" "),
+          _c("th", [_vm._v(_vm._s(_vm.record.name))])
+        ]),
+        _vm._v(" "),
+        _c("tr", [
+          _c("th", [_vm._v("weather")]),
+          _vm._v(" "),
+          _c("th", [
+            _c("img", {
+              attrs: { src: "./img/icon/" + _vm.record.icon + ".png", alt: "" }
+            })
           ])
+        ]),
+        _vm._v(" "),
+        _c("tr", [
+          _c("th", [_vm._v("max temp")]),
+          _vm._v(" "),
+          _c("th", [_vm._v(_vm._s(_vm.record.max_temp))])
+        ]),
+        _vm._v(" "),
+        _c("tr", [
+          _c("th", [_vm._v("min temp")]),
+          _vm._v(" "),
+          _c("th", [_vm._v(_vm._s(_vm.record.min_temp))])
         ])
-      : _vm._e()
+      ])
+    ])
   ])
 }
 var staticRenderFns = [
