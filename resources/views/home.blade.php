@@ -14,7 +14,7 @@
     <div class="form-group">
         <label class="col-sm-1 control-label">area:</label>
         <div class="col-sm-4">
-            <select name="area" class="form-control">
+            <select id="area" name="area" class="form-control">
                 <option value="">please select</option>
                 <option value="2130037">Hokkaidō</option>
                 <option value="2130656">Aomori-ken</option>
@@ -64,11 +64,6 @@
                 <option value="1860825">Kagoshima-ken</option>
                 <option value="1854345">Okinawa-ken</option>
             </select>
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="col-sm-offset-1 col-sm-10">
-            <input type="submit" class="btn btn-default" value="send">
         </div>
     </div>
     <div id="app">
