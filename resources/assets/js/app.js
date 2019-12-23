@@ -1,14 +1,12 @@
 require('./bootstrap');
 window.Vue = require('vue');
 import Vue from 'vue'
-import VueRouter from 'vue-router'
 import weather from './components/weather.vue';
 
 const route = {
     path: '/weather/show', name: 'weather', component: weather
 }
 
-Vue.use(VueRouter)
 import VueAxios from 'vue-axios';
 import axios from 'axios';
 Vue.use(VueAxios, axios);

@@ -1,10 +1,8 @@
 <template>
   <div>
-
-      <div class="col-sm-offset-1 col-sm-10">
-        <button type="button" v-on:click="showWeather" class="btn btn-default">send</button>
-      </div>
-
+    <div class="col-sm-offset-1 col-sm-10">
+      <button type="button" v-on:click="showWeather" class="btn btn-default">send</button>
+    </div>
     <div v-if="record == null">
       <table class="table">
         <colgroup>
@@ -41,17 +39,16 @@
 export default {
   data() {
     return {
-        record:{}
-    };
+      record:[]
+    }
   },
   methods: {
     showWeather() {
       var area = document.getElementById("area").value;
-      axios.post("/api/weather/" + area).then(function(res){
-          alert(res.data.name);
-          this.record = res.data;
+      axios.post("/api/weather/" + area).then(function(res) {
+        alert(res.data.icon);
+        this.record = res.data;
       });
-
     }
   }
 };
