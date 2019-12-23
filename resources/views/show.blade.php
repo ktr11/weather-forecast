@@ -7,11 +7,11 @@
         </colgroup>
         <tr>
             <th>date</th>
-            <th class="font_bold">{{ date('Y/m/d') }}</th>
+            <th>{{ date('Y/m/d') }}</th>
         </tr>
         <tr>
             <th>name</th>
-            <th class="font_bold">{{ $record->name }}</th>
+            <th>{{ $record->name }}</th>
         </tr>
         <tr>
             <th colspan="2"><img src="{{ url('img/icon') . '/' .  $record->icon . '.png' }}"></th>
