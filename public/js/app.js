@@ -44802,10 +44802,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'record',
+  name: 'ret_obj',
   data: function data() {
     return {
-      record: {}
+      date: '',
+      name: '',
+      icon: '',
+      max_temp: '',
+      min_temp: ''
     };
   },
   methods: {
@@ -44813,7 +44817,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       var self = this;
       var area = document.getElementById("area").value;
       axios.post("/api/weather/" + area).then(function (res) {
-        self.record = res.data;
+        self.ret_obj = res.data;
       });
     }
   }
@@ -44847,13 +44851,13 @@ var render = function() {
         _c("tr", [
           _c("th", [_vm._v("date")]),
           _vm._v(" "),
-          _c("th", [_vm._v(_vm._s(_vm.record.forecast_date))])
+          _c("th", [_vm._v(_vm._s(_vm.ret_obj.today))])
         ]),
         _vm._v(" "),
         _c("tr", [
           _c("th", [_vm._v("name")]),
           _vm._v(" "),
-          _c("th", [_vm._v(_vm._s(_vm.record.name))])
+          _c("th", [_vm._v(_vm._s(_vm.ret_obj.record.name))])
         ]),
         _vm._v(" "),
         _c("tr", [
@@ -44861,7 +44865,10 @@ var render = function() {
           _vm._v(" "),
           _c("th", [
             _c("img", {
-              attrs: { src: "./img/icon/" + _vm.record.icon + ".png", alt: "" }
+              attrs: {
+                src: "./img/icon/" + _vm.ret_obj.record.icon + ".png",
+                alt: ""
+              }
             })
           ])
         ]),
@@ -44869,13 +44876,13 @@ var render = function() {
         _c("tr", [
           _c("th", [_vm._v("max temp")]),
           _vm._v(" "),
-          _c("th", [_vm._v(_vm._s(_vm.record.max_temp))])
+          _c("th", [_vm._v(_vm._s(_vm.ret_obj.record.max_temp))])
         ]),
         _vm._v(" "),
         _c("tr", [
           _c("th", [_vm._v("min temp")]),
           _vm._v(" "),
-          _c("th", [_vm._v(_vm._s(_vm.record.min_temp))])
+          _c("th", [_vm._v(_vm._s(_vm.ret_obj.record.min_temp))])
         ])
       ])
     ])

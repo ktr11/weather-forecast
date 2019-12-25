@@ -11,25 +11,25 @@
         </colgroup>
         <tr>
           <th>date</th>
-          <th>{{ record.forecast_date }}</th>
+          <th>{{ ret_obj.today }}</th>
         </tr>
         <tr>
           <th>name</th>
-          <th>{{ record.name }}</th>
+          <th>{{ ret_obj.record.name }}</th>
         </tr>
         <tr>
           <th>weather</th>
           <th>
-            <img v-bind:src="'./img/icon/' + record.icon + '.png'" alt=""/>
+            <img v-bind:src="'./img/icon/' + ret_obj.record.icon + '.png'" alt />
           </th>
         </tr>
         <tr>
           <th>max&nbsp;temp</th>
-          <th>{{ record.max_temp }}</th>
+          <th>{{ ret_obj.record.max_temp }}</th>
         </tr>
         <tr>
           <th>min&nbsp;temp</th>
-          <th>{{ record.min_temp }}</th>
+          <th>{{ ret_obj.record.min_temp }}</th>
         </tr>
       </table>
     </div>
@@ -38,10 +38,14 @@
 
 <script>
 export default {
-  name: 'record',
+  name: 'ret_obj',
   data: function() {
     return {
-      record: {}
+      date: '',
+      name: '',
+      icon: '',
+      max_temp: '',
+      min_temp: ''  
     };
   },
   methods: {
@@ -49,7 +53,7 @@ export default {
       let self = this;
       var area = document.getElementById("area").value;
       axios.post("/api/weather/" + area).then(function(res) {
-        self.record = res.data;
+        self.ret_obj = res.data;
       });
     }
   }
