@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="col-sm-offset-1 col-sm-10">
-      <button type="button" @click="showWeather" class="btn btn-default">send</button>
+      <button type="button" @click="showWeather" class="btn btn-default">show</button>
     </div>
     <div>
       <table class="table">
@@ -15,21 +15,21 @@
         </tr>
         <tr>
           <th>name</th>
-          <th>{{ ret_obj.record.name }}</th>
+          <th>{{ ret_obj.name }}</th>
         </tr>
         <tr>
           <th>weather</th>
           <th>
-            <img v-bind:src="'./img/icon/' + ret_obj.record.icon + '.png'" alt />
+            <img v-bind:src="'./img/icon/' + ret_obj.icon + '.png'" alt />
           </th>
         </tr>
         <tr>
           <th>max&nbsp;temp</th>
-          <th>{{ ret_obj.record.max_temp }}</th>
+          <th>{{ ret_obj.max_temp }}</th>
         </tr>
         <tr>
           <th>min&nbsp;temp</th>
-          <th>{{ ret_obj.record.min_temp }}</th>
+          <th>{{ ret_obj.min_temp }}</th>
         </tr>
       </table>
     </div>
@@ -38,14 +38,10 @@
 
 <script>
 export default {
-  name: 'ret_obj',
+  name: "ret_obj",
   data: function() {
     return {
-      date: '',
-      name: '',
-      icon: '',
-      max_temp: '',
-      min_temp: ''  
+      ret_obj: {}
     };
   },
   methods: {
@@ -53,7 +49,7 @@ export default {
       let self = this;
       var area = document.getElementById("area").value;
       axios.post("/api/weather/" + area).then(function(res) {
-        self.ret_obj = res.data;
+        self.ret_obj = res.data[0].ret_obj;
       });
     }
   }
