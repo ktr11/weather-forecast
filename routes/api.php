@@ -51,15 +51,6 @@ Route::group(['middleware' => 'api'], function () {
                 'min_temp' => $record['min_temp'],
             ]]
         );
-        // array_push($ret_obj,
-        //     [
-        //         'today' => date('Y/m/d'),
-        //         'name' => $record['name'],
-        //         'icon' => $record['icon'],
-        //         'max_temp' => $record['max_temp'],
-        //         'min_temp' => $record['min_temp'],
-        //     ]
-        // );
         return json_encode($ret_obj);
     });
 });
